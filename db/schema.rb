@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 2023_03_23_055217) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "language"
+    t.string "language", limit: 255
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
