@@ -1,7 +1,7 @@
 <li>
   <div class="d-flex align-items-center gap-2 mb-3">
     <%= image_tag comment.user.decorate.avatar, class: 'rounded-circle avatar-sm' %>
-    <%= comment.user.name %>
+    <%= render 'shared/user_info', user: comment.user %>
   </div>
   <%= simple_format comment.content %>
   <div class="text-end">
