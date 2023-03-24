@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
   resources :users, only: %i[new create] do
-    resources :relationships, only: %i[index create destroy]
+    resources :relationships, only: %i[index create destroy], shallow: true
   end
   resources :events do
     collection do

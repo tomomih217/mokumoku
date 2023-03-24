@@ -58,6 +58,15 @@
           <div class="d-flex align-items-center gap-3 mb-3">
             <%= image_tag @event.user.decorate.avatar, class: 'rounded-circle avatar-lg' %>
             <%= @event.user.name %>
+            <% unless @event.user.myself?(current_user) %>
+              <div id="js-user-follow-<%= @event.user.id %>">
+                <% if current_user.following?(@event.user) %>
+                  <%= render 'relationships/unfollow', user: @event.user %>
+                <% else %>
+                  <%= render 'relationships/follow', user: @event.user %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
           <div class="p-3 bg-light">
             イベント数

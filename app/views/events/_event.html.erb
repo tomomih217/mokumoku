@@ -26,12 +26,23 @@
           <%= event.user.name %>
         </div>
         <% if logged_in? %>
-          <div id="js-event-bookmark-<%= event.id %>">
-            <% if current_user.bookmarked?(event) %>
-              <%= render 'events/bookmarks/unbookmark', event: event %>
-            <% else %>
-              <%= render 'events/bookmarks/bookmark', event: event %>
+          <div class='d-flex'>
+            <% unless event.user.myself?(current_user) %>
+              <div id="js-user-follow-<%= event.user.id %>" class='me-2'>
+                <% if current_user.following?(event.user) %>
+                  <%= render 'relationships/unfollow', user: event.user %>
+                <% else %>
+                  <%= render 'relationships/follow', user: event.user %>
+                <% end %>
+              </div>
             <% end %>
+            <div id="js-event-bookmark-<%= event.id %>">
+              <% if current_user.bookmarked?(event) %>
+                <%= render 'events/bookmarks/unbookmark', event: event %>
+              <% else %>
+                <%= render 'events/bookmarks/bookmark', event: event %>
+              <% end %>
+            </div>
           </div>
         <% end %>
       </div>

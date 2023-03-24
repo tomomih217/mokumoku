@@ -2,5 +2,14 @@
   <div class="d-flex align-items-center gap-2 mb-3">
     <%= image_tag attendee.decorate.avatar, class: 'rounded-circle avatar-md' %>
     <%= attendee.name %>
+    <% unless attendee.myself?(current_user) %>
+              <div id="js-user-follow-<%= attendee.id %>" class='me-2'>
+                <% if current_user.following?(attendee) %>
+                  <%= render 'relationships/unfollow', user: attendee %>
+                <% else %>
+                  <%= render 'relationships/follow', user: attendee %>
+                <% end %>
+              </div>
+            <% end %>
   </div>
 </li>

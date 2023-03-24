@@ -11,11 +11,11 @@
                     <div class="d-flex align-items-center mb-4 mb-lg-0">
                       <img class="avatar-xl rounded-circle" src="/assets/user-default-image-f7d429132ff4fa75171ca6180826a20a580a6e64219f45e07e047398164fb3cf.png">
                       <div class="ms-3">
-                        <h4 class="mb-3"><%= 'Tomo' %></h4>
+                        <h4 class="mb-3"><%= user.name %></h4>
                       </div>
                     </div>
                     <div>
-                      <%= link_to '削除', '#', class: 'btn btn-danger btn-outline btn-sm', method: :delete %>
+                      <%= link_to '削除', relationship_path(Relationship.find_by(follower_id: current_user.id, followed_id: user.id)), class: 'btn btn-danger btn-outline btn-sm', method: :delete %>
                     </div>
                   </div>
                 </div>

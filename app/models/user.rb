@@ -94,4 +94,9 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
+  # ユーザー本人か判定
+  def myself?(user)
+    id == user.id
+  end
 end
