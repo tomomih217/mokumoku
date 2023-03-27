@@ -18,6 +18,9 @@
   <li class="nav-item" role="presentation">
     <a class="nav-link" id="path-tab" data-bs-toggle="pill" href="#path" role="tab" aria-controls="path" aria-selected="false">参加済み</a>
   </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="path-tab" data-bs-toggle="pill" href="#path" role="tab" aria-controls="path" aria-selected="false">フォローが参加のイベント</a>
+  </li>
 </ul>
 <!-- Tab content -->
 <div class="tab-content" id="tabContent">
@@ -35,6 +38,11 @@
   <div class="tab-pane fade" id="path" role="tabpanel" aria-labelledby="path-tab">
     <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
       <%= render partial: 'events/event', collection: @past_events %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="follower_events" role="tabpanel" aria-labelledby="path-tab">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+      <%= render partial: 'events/event', collection: @follower_events %>
     </div>
   </div>
 </div>
