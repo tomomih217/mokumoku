@@ -46,6 +46,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rb-readline'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -61,8 +63,6 @@ group :development do
   gem 'letter_opener_web'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'capybara'
-  gem 'selenium-webdriver'
 end
 
 group :production do
