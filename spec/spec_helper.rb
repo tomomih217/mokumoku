@@ -15,8 +15,6 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'capybara/rspec'
-
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -55,7 +53,7 @@ RSpec.configure do |config|
   #   # is tagged with `:focus`, all examples get run. RSpec also provides
   #   # aliases for `it`, `describe`, and `context` that include `:focus`
   #   # metadata: `fit`, `fdescribe` and `fcontext`, respectively.
-     config.filter_run_when_matching :focus
+  config.filter_run_when_matching :focus
   #
   #   # Allows RSpec to persist some state between runs in order to support
   #   # the `--only-failures` and `--next-failure` CLI options. We recommend
@@ -98,8 +96,4 @@ RSpec.configure do |config|
   config.before :suite do
     load Rails.root.join('db/seeds.rb')
   end
-
-  config.before(:each, type: :system) do
-		driven_by :selenium_chrome_headless
-	end
 end
