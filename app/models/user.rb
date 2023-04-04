@@ -18,7 +18,7 @@ class User < ApplicationRecord
   # フォローされた場合のアソシエーション
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   # フォローしたユーザーを取得するためのアソシエーション
-  has_many :followings, through: :relationships. source: :followed
+  has_many :followings, through: :relationships, source: :followed
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -96,5 +96,10 @@ class User < ApplicationRecord
   # フォロー中かどうか判定する処理
   def following?(user)
     followings.include?(user)
+  end
+
+  # 自分自身かを判定する処理
+  def myself?(user_id)
+    user_id == id
   end
 end
