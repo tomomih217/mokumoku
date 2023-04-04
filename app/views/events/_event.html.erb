@@ -22,13 +22,8 @@
       <hr />
       <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center gap-3">
-          <div class='me-auto'>
-            <%= image_tag event.user.decorate.avatar, class: 'avatar-sm rounded-circle' %>
-            <%= link_to event.user.name, user_path(event.user.id) %>
-          </div>
-          <div>
-            <%= render 'follow', user: event.user %>
-          </div>
+          <%= image_tag event.user.decorate.avatar, class: 'avatar-sm rounded-circle' %>
+          <%= link_to event.user.name, user_path(event.user.id) %>
         </div>
         <% if logged_in? %>
           <div id="js-event-bookmark-<%= event.id %>">
