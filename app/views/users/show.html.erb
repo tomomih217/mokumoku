@@ -10,6 +10,7 @@
           <%= image_tag @user.decorate.avatar, class: 'avatar-xl rounded-circle' %>
           <div class="ms-3">
             <h4 class="mb-3"><%= @user.name %></h4>
+            <%= render 'follow', user: @user %>
           </div>
         </div>
       </div>
