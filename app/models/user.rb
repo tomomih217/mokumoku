@@ -84,13 +84,13 @@ class User < ApplicationRecord
   end
 
   # フォローする処理
-  def follow(user)
-    relationships.create(followed_id: user.id)
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
   end
 
   # フォローを外す処理
-  def unfollow(user)
-    relationships.find_by(followed_id: user.id).destroy
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
   end
 
   # フォロー中かどうか判定する処理
